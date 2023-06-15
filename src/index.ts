@@ -1,4 +1,6 @@
-import { Application, Container, Loader, Point, Sprite } from "pixi.js";
+import { Application, Loader } from "pixi.js";
+import { assets } from "./assets";
+import { DinoHat } from "./DinoHat";
 
 const app = new Application({
   view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -36,39 +38,16 @@ window.addEventListener("resize", () => {
 });
 window.dispatchEvent(new Event("resize"));
 
-Loader.shared.add({ url: "./dino.png", name: "Dino" });
-Loader.shared.add({ url: "./dinohat.png", name: "Hat" });
+Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(() => {
-  //------------Dinosaurio--------------//
-  const dino: Sprite = Sprite.from("Dino");
-  dino.scale.set(0.1, 0.1);
-  dino.position.set(100, 100);
-
-  //---------------Gorro----------------//
-  const hat: Sprite = Sprite.from("Hat");
-  hat.scale.set(0.2, 0.2);
-  hat.position.set(157, 50);
-
   //-------------Container-------------//
-  const dinoWithHat: Container = new Container();
-
-  dinoWithHat.addChild(dino);
-  dinoWithHat.addChild(hat);
+  const dinoWithHat: DinoHat = new DinoHat();
 
   dinoWithHat.scale.set(1.2);
   dinoWithHat.x = 300;
   dinoWithHat.y = 100;
   app.stage.addChild(dinoWithHat);
-
-  console.log(hat.toGlobal(new Point()));
-  console.log(hat.parent.toGlobal(hat.position));
-
-  // const aux = hat.parent.toLocal(new Point(0, 0));
-  // hat.position.x = aux.x;
-  // hat.position.y = aux.y;
-  // app.stage.addChild(dino);
-  // app.stage.addChild(hat);
 });
 
 Loader.shared.load();
