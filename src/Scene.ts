@@ -1,4 +1,4 @@
-import { Container, Graphics } from "pixi.js";
+import { Container, Graphics, Text } from "pixi.js";
 import { DinoHat } from "./DinoHat";
 
 export class Scene extends Container {
@@ -7,9 +7,9 @@ export class Scene extends Container {
 
     const dinoWithHat: DinoHat = new DinoHat();
 
-    dinoWithHat.scale.set(1.2);
-    dinoWithHat.x = 300;
-    dinoWithHat.y = 100;
+    dinoWithHat.scale.set(0.7);
+    dinoWithHat.x = 100;
+    dinoWithHat.y = 200;
     this.addChild(dinoWithHat);
 
     // Graphics
@@ -31,5 +31,17 @@ export class Scene extends Container {
 
     myGraph.position.set(1280 / 2, 720 / 2);
     this.addChild(myGraph);
+
+    // Text
+    const myText: Text = new Text("Hello World!", {
+      fontSize: 1500,
+      fill: 0xff0000,
+      fontFamily: "Comic Sans MS",
+    });
+    myText.text = "Bienvenido!";
+    myText.position.x = 250;
+    myText.angle = 0;
+    myText.scale.set(0.1);
+    this.addChild(myText);
   }
 }
