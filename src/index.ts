@@ -1,6 +1,6 @@
 import { Application, Loader } from "pixi.js";
 import { assets } from "./assets";
-import { DinoHat } from "./DinoHat";
+import { Scene } from "./Scene";
 
 const app = new Application({
   view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -41,13 +41,8 @@ window.dispatchEvent(new Event("resize"));
 Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(() => {
-  //-------------Container-------------//
-  const dinoWithHat: DinoHat = new DinoHat();
-
-  dinoWithHat.scale.set(1.2);
-  dinoWithHat.x = 300;
-  dinoWithHat.y = 100;
-  app.stage.addChild(dinoWithHat);
+  const myScene = new Scene();
+  app.stage.addChild(myScene);
 });
 
 Loader.shared.load();
