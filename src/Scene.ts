@@ -12,6 +12,7 @@ export class Scene extends Container {
   constructor() {
     super();
 
+    // Class extending from container
     const dinoWithHat: DinoHat = new DinoHat();
     dinoWithHat.scale.set(0.7);
     dinoWithHat.x = 100;
@@ -39,7 +40,7 @@ export class Scene extends Container {
     // Graphics
     const myGraph: Graphics = new Graphics();
 
-    myGraph.lineStyle({ color: 0xff00ff, width: 10, alpha: 1 });
+    myGraph.lineStyle({ color: 0xa30000, width: 10, alpha: 1 });
     myGraph.moveTo(0, 0);
     myGraph.lineTo(300, 500);
     myGraph.lineTo(300, 100);
@@ -47,8 +48,8 @@ export class Scene extends Container {
 
     myGraph.clear();
 
-    myGraph.lineStyle({ color: 0xff00ff, width: 10, alpha: 1 });
-    myGraph.beginFill(0x00ff00, 1);
+    myGraph.lineStyle({ color: 0xa30000, width: 10, alpha: 1 });
+    myGraph.beginFill(0xf3f3f3, 1);
     myGraph.drawCircle(0, 0, 100);
     myGraph.endFill();
     myGraph.drawCircle(50, 50, 100);
