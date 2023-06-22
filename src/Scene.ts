@@ -1,4 +1,4 @@
-import { Container, Graphics, Text } from "pixi.js";
+import { Container, Graphics, Sprite, Text } from "pixi.js";
 import { DinoHat } from "./DinoHat";
 
 export class Scene extends Container {
@@ -43,5 +43,10 @@ export class Scene extends Container {
     myText.angle = 0;
     myText.scale.set(0.1);
     this.addChild(myText);
+
+    // Nine-Slice Plane
+    const panel = Sprite.from("Panel");
+    this.addChild(panel);
+    panel.scale.set(1, 1);
   }
 }
