@@ -1,4 +1,11 @@
-import { Container, Graphics, Sprite, Text } from "pixi.js";
+import {
+  AnimatedSprite,
+  Container,
+  Graphics,
+  Sprite,
+  Text,
+  Texture,
+} from "pixi.js";
 import { DinoHat } from "./DinoHat";
 
 export class Scene extends Container {
@@ -6,11 +13,28 @@ export class Scene extends Container {
     super();
 
     const dinoWithHat: DinoHat = new DinoHat();
-
     dinoWithHat.scale.set(0.7);
     dinoWithHat.x = 100;
     dinoWithHat.y = 200;
     this.addChild(dinoWithHat);
+
+    // AnimatedSprite
+    const dinoAnimated: AnimatedSprite = new AnimatedSprite(
+      [
+        Texture.from("DinoRun01"),
+        Texture.from("DinoRun02"),
+        Texture.from("DinoRun03"),
+        Texture.from("DinoRun04"),
+        Texture.from("DinoRun05"),
+        Texture.from("DinoRun06"),
+        Texture.from("DinoRun07"),
+        Texture.from("DinoRun08"),
+      ],
+      true
+    );
+    dinoAnimated.play();
+    dinoAnimated.animationSpeed = 0.2;
+    this.addChild(dinoAnimated);
 
     // Graphics
     const myGraph: Graphics = new Graphics();
