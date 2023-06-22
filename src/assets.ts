@@ -9,5 +9,5 @@ export const assets = [
   { url: "./dino/run-06.png", name: "DinoRun06" },
   { url: "./dino/run-07.png", name: "DinoRun07" },
   { url: "./dino/run-08.png", name: "DinoRun08" },
-  //{ url: "./panel.png", name: "Panel" },
+  { url: "./ui/panel-blue.png", name: "Panel" },
 ];

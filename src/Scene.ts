@@ -2,7 +2,7 @@ import {
   AnimatedSprite,
   Container,
   Graphics,
-  Sprite,
+  NineSlicePlane,
   Text,
   Texture,
 } from "pixi.js";
@@ -70,8 +70,13 @@ export class Scene extends Container {
     this.addChild(myText);
 
     // Nine-Slice Plane
-    const panel = Sprite.from("Panel");
+    //const panel = Sprite.from("Panel");
+    const panel = new NineSlicePlane(Texture.from("Panel"), 35, 35, 35, 35);
     this.addChild(panel);
-    panel.scale.set(1, 1);
+    panel.width = 300;
+    panel.height = 200;
+    panel.scale.set(1);
+    panel.position.x = 900;
+    panel.position.y = 400;
   }
 }
